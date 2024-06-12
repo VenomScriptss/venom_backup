@@ -40,8 +40,6 @@ proxy = input("Enter The Proxy (For Iran) [Default=no proxy]: ").strip()
 if proxy in ("no proxy", ""):
     proxy = None
 
-with open(".env", "w") as f:
-    f.write(f"TOKEN={token}\nADMIN_ID={admin_id}\nPROXY={proxy}\n")
 os.system("clear")
 print("Installing Python and necessary tools...")
 os.system("sudo add-apt-repository ppa:deadsnakes/ppa -y")
@@ -53,8 +51,11 @@ os.system("sudo python3.11 get-pip.py")
 
 print("\n\n\nSetting up the bot...")
 os.system("mkdir -p /root/.venom-backup")
+os.system("cd /root/.venom-backup; wget -N --no-check-certificate https://github.com/VenomScriptss/venom_backup/archive/refs/heads/main.zip; unzip -o main.zip")
+with open("/root/.venom-backup/venom_backup-main/.env", "w") as f:
+    f.write(f"TOKEN={token}\nADMIN_ID={admin_id}\nPROXY={proxy}\n")
 os.system(
-    "cd /root/.venom-backup; wget -N --no-check-certificate https://github.com/VenomScriptss/venom_backup/archive/refs/heads/main.zip; unzip -o main.zip; cd venom-backup-main; python3.11 -m pip install -r /root/.venom-backup/venom_backup-main/requirements.txt; nohup python3.11 /root/.venom-backup/venom_backup-main/venom-backup.py > /root/.venom-backup/log.txt & disown")
+    "cd /root/.venom-backup/venom_backup-main; python3.11 -m pip install -r /root/.venom-backup/venom_backup-main/requirements.txt; nohup python3.11 /root/.venom-backup/venom_backup-main/venom-backup.py > /root/.venom-backup/log.txt & disown")
 
 print("\n\n\nAdding crontab entry...")
 os.system(
