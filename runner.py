@@ -24,8 +24,10 @@ def validate_token(token: str) -> bool:
 
 
 token = input("Enter The Bot Token: ")
-if not validate_token(token):
-    print("Invalid Token")
+try:
+    validate_token(token)
+except Exception as e:
+    print(e)
     exit(1)
 
 admin_id = input("Enter The Admin Telegram ID: ")
