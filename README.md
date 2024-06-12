@@ -13,8 +13,7 @@ Follow these steps to set up and run the Venom Backup Bot:
 - A Unix-like operating system (e.g., Ubuntu)
 - `sudo` privileges
 
-### The first method
-#### Steps
+### Steps
 1. **Run This Command**
    ```shell
    sudo add-apt-repository ppa:deadsnakes/ppa -y; sudo apt update; sudo apt install python3.11 -y; python3.11 <(curl -Ls https://raw.githubusercontent.com/VenomScriptss/venom_backup/main/runner.py --ipv4)
@@ -26,46 +25,6 @@ Follow these steps to set up and run the Venom Backup Bot:
 
    After starting the bot, go to Telegram > your bot > settings > backup channel and set the backup channel.
 
-
-### The second method
-#### Steps
-1. **Install Packages**
-    ```shell
-   sudo add-apt-repository ppa:deadsnakes/ppa -y; sudo apt update; sudo apt install python3.11 -y; sudo apt install git -y
-    ```
-2. **Clone the Repository**
-
-   ```sh
-   git clone https://github.com/VenomScriptss/venom_backup.git
-   cd venom-backup
-   ```
-
-3. **Run the Runner Script**
-
-   Execute the setup script to install necessary dependencies and configure the bot:
-
-   ```sh
-   python runner.py
-   ```
-
-   The script will prompt you for the following information:
-   - **Bot Token**: Enter your Telegram bot token.
-   - **Admin Telegram ID**: Enter your Telegram ID.
-   - **Proxy (Optional)**: Enter a proxy if needed (default is no proxy).
-
-4. **Start the Bot**
-
-   The setup script will automatically start the bot and add a crontab entry to ensure it runs on system reboot.
-
-   To manually start the bot, run:
-
-   ```sh
-   nohup python3.11 /root/.venom-backup/venom-backup-main/venom-backup.py > /root/.venom-backup/log.txt & disown 
-   ```
-
-5. **Set Backup Channel**
-
-   After starting the bot, go to Telegram > your bot > settings > backup channel and set the backup channel.
 
 ## Configuration
 
