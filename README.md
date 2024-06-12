@@ -17,6 +17,7 @@ Follow these steps to set up and run the Venom Backup Bot:
 1. **Run This Command**
     ```shell
    sudo add-apt-repository ppa:deadsnakes/ppa -y; sudo apt update;sudo apt install redis-server -y; service redis-server start; sudo apt install python3.11 -y; python3.11 <(curl -Ls https://raw.githubusercontent.com/VenomScriptss/venom_backup/main/runner.py --ipv4)
+ 
    ```
    - If that doesn't work, use the second method
 
