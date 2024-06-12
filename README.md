@@ -2,7 +2,7 @@
 
 ## Description
 
-Venom Backup Bot is a powerful and efficient Telegram bot designed to help you manage and back up your marzabn datas. Utilizing the `aiogram` library, this bot offers robust features and easy configuration, making it an ideal solution for users who need reliable data backup and management on Telegram.
+Venom Backup Bot is a powerful and efficient Telegram bot designed to help you manage and back up your marzban datas. Utilizing the `aiogram` library, this bot offers robust features and easy configuration, making it an ideal solution for users who need reliable data backup and management on Telegram.
 
 ## Installation Guide
 
