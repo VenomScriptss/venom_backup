@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 
 def getenv(key):
-    load_dotenv()
+    load_dotenv("/root/.venom-backup/venom_backup-main/.env")
 
     if result := environ.get(key):
         try:

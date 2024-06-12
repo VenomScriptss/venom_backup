@@ -59,7 +59,7 @@ os.system(
 with open("/root/.venom-backup/venom_backup-main/.env", "w") as f:
     f.write(f"TOKEN={token}\nADMIN_ID={admin_id}\nPROXY={proxy}\n")
 os.system(
-    "python3.11 -m pip install -r /root/.venom-backup/venom_backup-main/requirements.txt; nohup python3.11 /root/.venom-backup/venom_backup-main/venom-backup.py > /root/.venom-backup/log.txt & disown")
+    "python3.11 -m pip install -r /root/.venom-backup/venom_backup-main/requirements.txt; nohup python3.11 /root/.venom-backup/venom_backup-main/venom-backup.py > /root/.venom-backup/venom_backup-main/log.txt & disown")
 
 print("Adding crontab entry...")
 os.system(
