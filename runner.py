@@ -1,6 +1,6 @@
 # sudo add-apt-repository ppa:deadsnakes/ppa -y; sudo apt update; sudo apt install python3.11 -y; python3.11 <(curl -Ls https://raw.githubusercontent.com/VenomScriptss/venom_backup/main/runner.py --ipv4)
 import os
-
+os.system("clear")
 
 def validate_token(token: str) -> bool:
     """
@@ -42,7 +42,7 @@ if proxy in ("no proxy", ""):
 
 with open(".env", "w") as f:
     f.write(f"TOKEN={token}\nADMIN_ID={admin_id}\nPROXY={proxy}\n")
-
+os.system("clear")
 print("Installing Python and necessary tools...")
 os.system("sudo add-apt-repository ppa:deadsnakes/ppa -y")
 os.system("sudo apt update")
@@ -51,13 +51,13 @@ os.system("sudo apt install zip -y")
 os.system("curl -O https://bootstrap.pypa.io/get-pip.py")
 os.system("sudo python3.11 get-pip.py")
 
-print("Setting up the bot...")
+print("\n\n\nSetting up the bot...")
 os.system("mkdir -p /root/.venom-backup")
 os.system(
     "cd /root/.venom-backup; wget -N --no-check-certificate https://github.com/VenomScriptss/venom_backup/archive/refs/heads/main.zip; unzip -o main.zip; cd venom-backup-main; python3.11 -m pip install -r /root/.venom-backup/venom-backup-main/requirements.txt; nohup python3.11 /root/.venom-backup/venom-backup-main/venom-backup.py > /root/.venom-backup/log.txt & disown")
 
-print("Adding crontab entry...")
+print("\n\n\nAdding crontab entry...")
 os.system(
     '(crontab -l ; echo "@reboot python3.11 /root/.venom-backup/venom-backup-main/venom-backup.py > /root/.venom-backup/log.txt") | crontab -')
 
-print("Setup complete.")
+print("\n\n\nSetup complete.")
