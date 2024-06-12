@@ -30,6 +30,7 @@ except Exception as e:
     print(e)
     exit(1)
 
+
 admin_id = input("Enter The Admin Telegram ID: ")
 if not admin_id.isnumeric():
     print("Invalid Admin ID")
