@@ -1,6 +1,6 @@
 # sudo add-apt-repository ppa:deadsnakes/ppa -y; sudo apt update; sudo apt install python3.11 -y; python3.11 <(curl -Ls https://raw.githubusercontent.com/VenomScriptss/venom_backup/main/runner.py --ipv4)
 import os
-os.system("clear")
+
 
 def validate_token(token: str) -> bool:
     """
@@ -30,7 +30,6 @@ except Exception as e:
     print(e)
     exit(1)
 
-
 admin_id = input("Enter The Admin Telegram ID: ")
 if not admin_id.isnumeric():
     print("Invalid Admin ID")
@@ -40,26 +39,26 @@ proxy = input("Enter The Proxy (For Iran) [Default=no proxy]: ").strip()
 if proxy in ("no proxy", ""):
     proxy = None
 
-os.system("clear")
+with open(".env", "w") as f:
+    f.write(f"TOKEN={token}\nADMIN_ID={admin_id}\nPROXY={proxy}\n")
+
 print("Installing Python and necessary tools...")
 os.system("sudo add-apt-repository ppa:deadsnakes/ppa -y")
 os.system("sudo apt update")
 os.system("sudo apt install python3.11 -y")
+os.system("sudo apt install redis-server -y")
+os.system("service redis-server start")
 os.system("sudo apt install zip -y")
 os.system("curl -O https://bootstrap.pypa.io/get-pip.py")
 os.system("sudo python3.11 get-pip.py")
 
-print("\n\n\nSetting up the bot...")
+print("Setting up the bot...")
 os.system("mkdir -p /root/.venom-backup")
-os.system("cd /root/.venom-backup; wget -N --no-check-certificate https://github.com/VenomScriptss/venom_backup/archive/refs/heads/main.zip; unzip -o main.zip")
-with open("/root/.venom-backup/venom_backup-main/.env", "w") as f:
-    print("\n\n\nSvaving.env file...")
-    f.write(f"BOT_TOKEN={token}\nADMIN_ID={admin_id}\nBOT_PROXY={proxy}\n")
 os.system(
-    "cd /root/.venom-backup/venom_backup-main; python3.11 -m pip install -r /root/.venom-backup/venom_backup-main/requirements.txt; nohup python3.11 /root/.venom-backup/venom_backup-main/venom-backup.py > /root/.venom-backup/log.txt & disown")
+    "cd /root/.venom-backup; wget -N --no-check-certificate https://github.com/VenomScriptss/venom_backup/archive/refs/heads/main.zip; unzip -o main.zip; cd venom-backup-main; python3.11 -m pip install -r requirements.txt; nohup python3.11 /root/.venom-backup/venom-backup-main/venom-backup.py > /root/.venom-backup/log.txt & disown")
 
-print("\n\n\nAdding crontab entry...")
+print("Adding crontab entry...")
 os.system(
-    '(crontab -l ; echo "@reboot python3.11 /root/.venom-backup/venom_backup-main/venom-backup.py > /root/.venom-backup/log.txt") | crontab -')
+    '(crontab -l ; echo "@reboot python3.11 /root/.venom-backup/venom-backup-main/venom-backup.py > /root/.venom-backup/log.txt") | crontab -')
 
-print("\n\n\nSetup complete.")
+print("Setup complete.")
