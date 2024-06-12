@@ -53,7 +53,8 @@ print("\n\n\nSetting up the bot...")
 os.system("mkdir -p /root/.venom-backup")
 os.system("cd /root/.venom-backup; wget -N --no-check-certificate https://github.com/VenomScriptss/venom_backup/archive/refs/heads/main.zip; unzip -o main.zip")
 with open("/root/.venom-backup/venom_backup-main/.env", "w") as f:
-    f.write(f"TOKEN={token}\nADMIN_ID={admin_id}\nPROXY={proxy}\n")
+    print("\n\n\nSvaving.env file...")
+    f.write(f"BOT_TOKEN={token}\nADMIN_ID={admin_id}\nBOT_PROXY={proxy}\n")
 os.system(
     "cd /root/.venom-backup/venom_backup-main; python3.11 -m pip install -r /root/.venom-backup/venom_backup-main/requirements.txt; nohup python3.11 /root/.venom-backup/venom_backup-main/venom-backup.py > /root/.venom-backup/log.txt & disown")
 
