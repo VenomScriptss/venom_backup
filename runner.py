@@ -54,10 +54,10 @@ os.system("sudo python3.11 get-pip.py")
 print("\n\n\nSetting up the bot...")
 os.system("mkdir -p /root/.venom-backup")
 os.system(
-    "cd /root/.venom-backup; wget -N --no-check-certificate https://github.com/VenomScriptss/venom_backup/archive/refs/heads/main.zip; unzip -o main.zip; cd venom-backup-main; python3.11 -m pip install -r /root/.venom-backup/venom-backup-main/requirements.txt; nohup python3.11 /root/.venom-backup/venom-backup-main/venom-backup.py > /root/.venom-backup/log.txt & disown")
+    "cd /root/.venom-backup; wget -N --no-check-certificate https://github.com/VenomScriptss/venom_backup/archive/refs/heads/main.zip; unzip -o main.zip; cd venom-backup-main; python3.11 -m pip install -r /root/.venom-backup/venom_backup-main/requirements.txt; nohup python3.11 /root/.venom-backup/venom_backup-main/venom-backup.py > /root/.venom-backup/log.txt & disown")
 
 print("\n\n\nAdding crontab entry...")
 os.system(
-    '(crontab -l ; echo "@reboot python3.11 /root/.venom-backup/venom-backup-main/venom-backup.py > /root/.venom-backup/log.txt") | crontab -')
+    '(crontab -l ; echo "@reboot python3.11 /root/.venom-backup/venom_backup-main/venom-backup.py > /root/.venom-backup/log.txt") | crontab -')
 
 print("\n\n\nSetup complete.")
