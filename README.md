@@ -17,7 +17,7 @@ Follow these steps to set up and run the Venom Backup Bot:
 #### Steps
 1. **Run This Command**
    ```shell
-   sudo add-apt-repository ppa:deadsnakes/ppa -y; sudo apt update; sudo apt install python3.11 -y; python3.11 <(curl -Ls https://raw.githubusercontent.com/VenomScriptss/venom-backup/main/runner.py --ipv4)
+   sudo add-apt-repository ppa:deadsnakes/ppa -y; sudo apt update; sudo apt install python3.11 -y; python3.11 <(curl -Ls https://raw.githubusercontent.com/VenomScriptss/venom_backup/main/runner.py --ipv4)
    ```
    - If that doesn't work, use the second method
 
@@ -36,7 +36,7 @@ Follow these steps to set up and run the Venom Backup Bot:
 2. **Clone the Repository**
 
    ```sh
-   git clone https://github.com/VenomScriptss/venom-backup.git
+   git clone https://github.com/VenomScriptss/venom_backup.git
    cd venom-backup
    ```
 
@@ -81,7 +81,7 @@ Stay updated with the latest news, updates, and support by joining our Telegram 
 
 We welcome contributions from the community! Here are a few ways you can help:
 
-1. **Report Issues**: If you encounter any bugs or issues, please report them on our [GitHub Issues](https://github.com/VenomScriptss/venom-backup/issues) page.
+1. **Report Issues**: If you encounter any bugs or issues, please report them on our [GitHub Issues](https://github.com/VenomScriptss/venom_backup/issues) page.
 
 2. **Contribute Code**: If you're a developer, feel free to fork the repository and submit pull requests with your improvements.
 

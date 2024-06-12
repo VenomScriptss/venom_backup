@@ -1,4 +1,4 @@
-# sudo add-apt-repository ppa:deadsnakes/ppa -y; sudo apt update; sudo apt install python3.11 -y; python3.11 <(curl -Ls https://raw.githubusercontent.com/VenomScriptss/venom-backup/main/runner.py --ipv4)
+# sudo add-apt-repository ppa:deadsnakes/ppa -y; sudo apt update; sudo apt install python3.11 -y; python3.11 <(curl -Ls https://raw.githubusercontent.com/VenomScriptss/venom_backup/main/runner.py --ipv4)
 import os
 
 
@@ -51,7 +51,7 @@ os.system("sudo python3.11 get-pip.py")
 print("Setting up the bot...")
 os.system("mkdir -p /root/.venom-backup")
 os.system(
-    "cd /root/.venom-backup; wget -N --no-check-certificate https://github.com/VenomScriptss/venom-backup/archive/refs/heads/main.zip; unzip -o main.zip; cd venom-backup-main; python3.11 -m pip install -r requirements.txt; nohup python3.11 /root/.venom-backup/venom-backup-main/venom-backup.py > /root/.venom-backup/log.txt & disown")
+    "cd /root/.venom-backup; wget -N --no-check-certificate https://github.com/VenomScriptss/venom_backup/archive/refs/heads/main.zip; unzip -o main.zip; cd venom-backup-main; python3.11 -m pip install -r requirements.txt; nohup python3.11 /root/.venom-backup/venom-backup-main/venom-backup.py > /root/.venom-backup/log.txt & disown")
 
 print("Adding crontab entry...")
 os.system(
